@@ -1,2 +1,41 @@
 class ServicesController < ApplicationController
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :completed, :done]
+  def index
+    @services = Service.all
+  end
+
+  def done
+    @services = Service.where(completed: false)
+  end
+
+  def show
+    @service = Service.find(params[:id])
+  end
+
+  def new
+    @service = Service.new
+  end
+
+  def create
+    @service = Service.new(service_params)
+    if @service.save
+      redirect_to service_path(@service)
+    else
+      render :new
+    end
+  end
+
+  def completed
+    @service = Service.find(params[:service_id])
+    @service.update(completed: true)
+    if @service.save
+      redirect_to services_path
+    end
+  end
+
+  private
+
+  def service_params
+    params.require(:service).permit(:name, :description, :price)
+  end
 end

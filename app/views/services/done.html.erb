@@ -1,0 +1,12 @@
+<div class="container">
+  <h1>Heres what you still need to do</h1>
+
+  <% @services.each do |service| %>
+    <div class="card-todo">
+      <%= render "show", service: service %>
+    </div>
+  <% end %>
+
+  <%= link_to "Go back to all the services", services_path  %>
+
+</div>

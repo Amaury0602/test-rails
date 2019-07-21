@@ -1,0 +1,11 @@
+<div class="card-show">
+  <h1><%= service.name %></h1>
+  <h3><%= service.description %></h3>
+  <h4><%= service.price %></h4>
+  <% if !service.completed %>
+    <%= link_to "Mark as completed", service_completed_path(service), method:"patch" ,class: "btn btn-primary" %>
+  <% else %>
+    <p>Done :) </p>
+  <% end %>
+</div>
+

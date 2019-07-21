@@ -9,7 +9,7 @@
 Service.destroy_all
 
 Service.create(name: "Laver le linge", description: "Le linge est sale il faut le laver", price: 7)
-Service.create(name: "Manger", description: "Mnager des pates au resto", price: 10)
+Service.create(name: "Manger", description: "Manger des pates au resto", price: 10)
 Service.create(name: "Promener le chien", description: "Le chien doit faire ses besoins promène le", price: 5)
 Service.create(name: "Monter la commode", description: "La voisine a du mal à monter sa commode", price: 20)
 Service.create(name: "Fermer sa gueule", description: "Tu énerves tout le monde tais-toi", price: 1)

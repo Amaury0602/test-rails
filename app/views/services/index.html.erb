@@ -1,0 +1,34 @@
+<div class="container">
+  <h1> Here's all the services we propose</h1>
+
+
+  <div class="index-actions">
+    <div class="service-list">
+      <% @services.each do |service| %>
+        <div class="service-card">
+          <%= link_to service.name, service_path(service), class: "service-name" %>
+          <div class="service-infos">
+            <p class="service-description"><%= service.description %></p>
+            <p class="service-price"><%= service.price %></p>
+          </div>
+          <div class="service-completed">
+            <% if service.completed %>
+              <p> X </p>
+            <% else %>
+              <p> O </p>
+            <% end %>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <div class="user-action">
+      <div class="create">
+        <%= link_to "Create your task", new_service_path%>
+      </div>
+      <div class="completed-list">
+        <%= link_to "See only to-do stuff", done_services_path %>
+      </div>
+    </div>
+  </div>
+
+</div>

@@ -1,0 +1,44 @@
+
+
+.index-actions {
+  display: flex;
+}
+
+.service-list {
+  display: flex;
+  flex-direction: column;
+  flex-basis: 60%;
+  .service-card {
+    width: 90%;
+    border: solid 1px red;
+    margin-bottom: 3px;
+    padding-left: 3px;
+    display: flex;
+    .service-name {
+      flex-basis: 50%;
+      font-size: 25px;
+      text-decoration: none;
+    }
+
+    .service-infos {
+      display: flex;
+      flex-basis: 25%;
+      flex-direction: column;
+      .service-description {
+
+      }
+      .service-price {
+
+      }
+    }
+    &:hover {
+      box-shadow: 3px 3px 10px 0.5px rgba(214, 63, 45, 0.5);
+    }
+
+    .service-completed {
+      flex-basis: 25%;
+      text-align: center;
+    }
+  }
+
+}
