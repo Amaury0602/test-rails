@@ -8,3 +8,28 @@
   padding-left: 5px;
   padding-bottom: 5px;
 }
+
+.comment-section {
+  display: flex;
+  flex-direction: column;
+  .comment-card{
+    display: flex;
+    border-bottom: 0.5px solid;
+    border-left: 1px solid;
+    margin-bottom: 5px;
+    transition-duration: 0.2s;
+    &:hover {
+      font-size: 17px;
+      .destroy-review {
+        display: block;
+      }
+    }
+    .content {
+      flex-basis: 50%;
+    }
+    .destroy-review {
+      display: none;
+    }
+  }
+}
+

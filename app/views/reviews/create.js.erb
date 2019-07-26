@@ -1,0 +1,10 @@
+document.querySelector(".comment-section").insertAdjacentHTML("beforeend",
+   `<div class="comment-card" data-review-id ="<%= @review.id %>">
+      <div class="content">
+        <p><%= Review.where(service: @review.service).count %> <%= @review.content %></p>
+      </div>
+      <div class="destroy-review">
+        <%= link_to "Destroy comment", service_review_path(@review.service, @review), method: "delete", remote: true  %>
+      </div>
+    </div>`
+    )

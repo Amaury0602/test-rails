@@ -1,5 +1,5 @@
 class ServicesController < ApplicationController
-  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :completed, :done]
+  skip_before_action :authenticate_user!, only: [:index, :show, :new, :create, :completed, :done, :destroy]
   def index
     @services = Service.all
   end
@@ -10,6 +10,8 @@ class ServicesController < ApplicationController
 
   def show
     @service = Service.find(params[:id])
+    @review = Review.new
+    @review.service = @service
   end
 
   def new
@@ -26,10 +28,23 @@ class ServicesController < ApplicationController
   end
 
   def completed
+    @services = Service.all
     @service = Service.find(params[:service_id])
     @service.update(completed: true)
     if @service.save
-      redirect_to services_path
+      respond_to do |format|
+        format.html { redirect_to service_path(@service) }
+        format.js
+      end
+    end
+  end
+
+  def destroy
+    @service = Service.find(params[:id])
+    @service.destroy
+    respond_to do |format|
+      format.html
+      format.js
     end
   end
 

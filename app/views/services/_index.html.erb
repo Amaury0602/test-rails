@@ -1,0 +1,18 @@
+<div class="service-card" data-service-id = "<%= service.id %>">
+  <%= link_to service.name, service_path(service), class: "service-name" %>
+  <div class="service-infos">
+    <p class="service-description"><%= service.description %></p>
+    <p class="service-price"><%= service.price %>€</p>
+  </div>
+  <div class="service-completed">
+    <% if service.completed %>
+      <p> X </p>
+    <% else %>
+      <p> O </p>
+      <%= link_to "Mark as done", service_completed_path(service), method: "patch", remote: true %>
+    <% end %>
+  </div>
+  <div class="delete-card">
+    <%= link_to "Remove service", service_path(service), method: "delete", remote: true  %>
+  </div>
+</div>

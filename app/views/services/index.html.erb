@@ -5,20 +5,9 @@
   <div class="index-actions">
     <div class="service-list">
       <% @services.each do |service| %>
-        <div class="service-card">
-          <%= link_to service.name, service_path(service), class: "service-name" %>
-          <div class="service-infos">
-            <p class="service-description"><%= service.description %></p>
-            <p class="service-price"><%= service.price %></p>
-          </div>
-          <div class="service-completed">
-            <% if service.completed %>
-              <p> X </p>
-            <% else %>
-              <p> O </p>
-            <% end %>
-          </div>
-        </div>
+        <div class="service-card-index">
+          <%= render "index", service: service %>
+        <div/>
       <% end %>
     </div>
     <div class="user-action">
@@ -30,5 +19,4 @@
       </div>
     </div>
   </div>
-
 </div>
