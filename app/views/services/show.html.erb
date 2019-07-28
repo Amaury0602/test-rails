@@ -1,9 +1,7 @@
 <div class="container">
-
   <div class="service-show">
     <%= render "show", service: @service %>
   </div>
-
   <div class="comment-form">
     <%= simple_form_for([@service, @review], remote: true) do |f| %>
       <%= f.input :content %>
@@ -11,16 +9,7 @@
     <% end %>
   </div>
   <div class="comment-section">
-    <% Review.where(service: @service).each_with_index do |review, index| %>
-      <div class="comment-card" data-review-id = "<%= review.id %>">
-        <div class="content">
-          <p><%= index + 1 %> <%= review.content %></p>
-        </div>
-        <div class="destroy-review">
-          <%= link_to "Destroy comment", service_review_path(@service, review), method: "delete", remote: true  %>
-        </div>
-      </div>
-    <% end %>
+    <%= render "./reviews/comment_list" %>
   </div>
   <%= link_to "Go back to list", services_path  %>
 </div>

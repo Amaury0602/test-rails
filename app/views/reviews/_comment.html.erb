@@ -1,0 +1,8 @@
+<div class="comment-card" data-review-id = "<%= review.id %>">
+  <div class="content">
+    <p><%= index + 1 %> <%= review.content %></p>
+  </div>
+  <div class="destroy-review">
+    <%= link_to "Destroy comment", service_review_path(@service, review), method: "delete", remote: true  %>
+  </div>
+</div>

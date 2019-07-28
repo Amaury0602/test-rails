@@ -1,0 +1,3 @@
+<% Review.where(service: @service).each_with_index do |review, index| %>
+  <%= render "./reviews/comment", review: review, index:index%>
+<% end %>
