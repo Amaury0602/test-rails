@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     patch "completed", to: "services#completed"
 
     resources :reviews, only: [:new, :create, :destroy]
-  end
 
+    post "chose", to: "contracts#chose"
+  end
 end

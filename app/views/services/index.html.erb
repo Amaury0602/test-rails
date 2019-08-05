@@ -5,6 +5,10 @@
         <div class="service-card-index">
           <%= render "index", service: service %>
         <div/>
+        <div class="index-information">
+          <button class="display-button" data-button-id="<%= service.id %>"> display </button>
+          <%= render "more_info", service: service %>
+        </div>
       <% end %>
     </div>
     <div class="user-action">

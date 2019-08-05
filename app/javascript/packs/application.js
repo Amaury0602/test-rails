@@ -1,5 +1,7 @@
 import "bootstrap";
 
-import { ToolJs } from "../plugins/tool";
+import { selectService } from "../plugins/select_service";
+import { displayInfo } from "../plugins/display_info";
 
-//ToolJs();
+displayInfo();
+selectService();
